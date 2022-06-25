@@ -14,8 +14,10 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo wget -O ~/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
-            sudo chmod +x ~/bin/hadolint
+            python3 -m venv ~/.devops
+            source ~/.devops/bin/activate
+            sudo wget -O ~/.devops/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+            sudo chmod +x ~/.devops/bin/hadolint
       - run:
           name: Run Lint
           command: |
