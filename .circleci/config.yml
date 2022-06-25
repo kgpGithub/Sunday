@@ -14,14 +14,14 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python3 -m venv ~/.devops
-            source ~/.devops/bin/activate
-            sudo wget -O ~/.devops/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
-            sudo chmod +x ~/.devops/bin/hadolint
+            cd /
+            sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+            sudo chmod +x /bin/hadolint
       - run:
           name: Run Lint
           command: |
-            hadolint Dockerfile
+            cd ~/environment/Sunday 
+            /bin/hadolint Dockerfile
 
   docker-build:
     docker:
