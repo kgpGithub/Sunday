@@ -97,24 +97,4 @@ workflows:
   deployment:
     jobs:
       - run-lint
-      - docker-build
-      - docker-push:
-          requires:
-            - docker-build
-      - aws-eks/create-cluster:
-          cluster-name: capstone-Prasad-project
-          requires:
-            - docker-push
-      - deploy-application:
-          cluster-name: capstone-Prasad-project
-          requires:
-            - aws-eks/create-cluster
-      - test-cluster:
-          cluster-name: capstone-Prasad-project
-          requires:
-            - aws-eks/create-cluster
-            - deploy-application
-      - aws-eks/delete-cluster:
-          cluster-name: capstone-Prasad-project
-          requires:
-            - test-cluster
+     
