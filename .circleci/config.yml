@@ -49,8 +49,8 @@ jobs:
             export IMAGE_NAME=capstone-prasad-project
             docker build -t korivi/$IMAGE_NAME .
             sudo docker login -u=kgp007 -p=Mydocker@2021 
-            #sudo docker run korivi/$IMAGE_NAME
-            sudo service docker start
+            sudo docker run korivi/$IMAGE_NAME
+            #sudo service docker start
             sudo docker push korivi/$IMAGE_NAME
 
   deploy-application:
