@@ -20,8 +20,13 @@ jobs:
       - run:
           name: Run Lint
           command: |
+<<<<<<< HEAD
             cd ~/environment/Sunday 
             /bin/hadolint Dockerfile
+=======
+            cd ~/environment/Sunday-1
+            hadolint Dockerfile
+>>>>>>> 3c4f33e10a16467cf4336cbf09c4d000055a9f01
 
   docker-build:
     docker:
