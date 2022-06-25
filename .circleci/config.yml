@@ -51,11 +51,9 @@ jobs:
             sudo docker login -u=kgp007 -p=Mydocker@2021 
             #sudo rm -rf /var/lib/docker
             #sudo docker run korivi/$IMAGE_NAME
-            #sudo service docker start
             #sudo systemctl start docker.
-            sudo rm -f /var/run/docker.pid
+            #sudo rm -f /var/run/docker.pid
             #sudo chown $(whoami) /var/run/docker.sock
-            sudo service docker restart
             sudo docker push korivi/$IMAGE_NAME
 
   deploy-application:
