@@ -22,9 +22,6 @@ jobs:
           command: |
             cd ~/environment/Sunday 
             /bin/hadolint Dockerfile
-            cd ~/environment/Sunday-1
-            hadolint Dockerfile
-
   docker-build:
     docker:
       - image: circleci/node:13.8.0
