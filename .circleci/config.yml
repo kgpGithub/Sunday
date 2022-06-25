@@ -41,8 +41,8 @@ jobs:
     docker:
       - image: cimg/ruby:3.0.2
         auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+          username: kgp007
+          password: Mydocker@2021  # context / project UI env-var reference
     steps:
       - checkout
       - run: echo "A more familiar hi"
@@ -60,3 +60,9 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  one_and_two:
+    jobs:
+      - one
+      - two:
+          requires:
+            - one
