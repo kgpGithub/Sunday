@@ -53,7 +53,8 @@ jobs:
             #sudo docker run korivi/$IMAGE_NAME
             #sudo systemctl start docker.
             #sudo rm -f /var/run/docker.pid
-            #sudo chown $(whoami) /var/run/docker.sock
+            sudo chown $(whoami) /var/run/docker.sock
+            sudo chmod 775 /var/run/docker.sock
             sudo docker push korivi/$IMAGE_NAME
 
   deploy-application:
