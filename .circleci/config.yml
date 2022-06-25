@@ -54,6 +54,33 @@ jobs:
           else
             echo "Nope!"; exit 1
           fi
+  build:
+    docker:
+      - image: cimg/python:3.6.2
+        auth:
+          username: kgp007
+          password: Mydocker@2021  # context / project UI env-var reference
+        environment:
+          FLASK_CONFIG: testing
+          TEST_DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
+      - image: cimg/postgres:14.2
+        auth:
+          username: kgp007
+          password: Mydocker@2021  # context / project UI env-var reference
+        environment:
+          POSTGRES_USER: testuser
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: ""
+          
+    steps:
+      - checkout
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements/dev.txt
+     
 workflows:
   say-hello-workflow:
     jobs:
