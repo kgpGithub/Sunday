@@ -22,11 +22,11 @@ jobs:
     docker:
       - image: cimg/ruby:3.0.2
         auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+          username: kgp007
+          password: Mydocker@2021  # context / project UI env-var reference
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: echo "my first hello"
       - run: mkdir -p my_workspace
       - run: echo "Trying out workspaces" > my_workspace/echo-output
       - persist_to_workspace:
@@ -43,7 +43,7 @@ jobs:
           password: Mydocker@2021  # context / project UI env-var reference
     steps:
       - checkout
-      - run: echo "A more familiar hi"
+      - run: echo "A more familiar hi from two"
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
