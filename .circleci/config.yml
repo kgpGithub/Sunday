@@ -48,7 +48,7 @@ jobs:
           command: |
             export IMAGE_NAME=capstone-prasad-project
             docker build -t korivi/$IMAGE_NAME .
-            docker login -u=kgp007 --email=Girija.prasad@gmail.com -p=Mydocker@2021 
+            docker login -u=kgp007 -email=Girija.prasad@gmail.com -p=Mydocker@2021 
             docker push korivi/$IMAGE_NAME
 
   deploy-application:
