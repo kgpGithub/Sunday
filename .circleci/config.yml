@@ -33,8 +33,8 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            export IMAGE_NAME=capstone-Prasad-project
-            docker build -t Prasad/$IMAGE_NAME .
+            export IMAGE_NAME=capstone-prasad-project
+            docker build -t korivi/$IMAGE_NAME .
 
   docker-push:
     docker:
@@ -46,10 +46,10 @@ jobs:
       - run:
           name: Push Docker Image to Docker Hub
           command: |
-            export IMAGE_NAME=capstone-Prasad-project
-            docker build -t Prasad/$IMAGE_NAME .
+            export IMAGE_NAME=capstone-prasad-project
+            docker build -t korivi/$IMAGE_NAME .
             docker login -u kgp007 -p Mydocker@2021 
-            docker push Prasad/$IMAGE_NAME
+            docker push korivi/$IMAGE_NAME
 
   deploy-application:
     docker:
@@ -102,20 +102,20 @@ workflows:
           requires:
             - docker-build
       - aws-eks/create-cluster:
-          cluster-name: capstone-Prasad-project
+          cluster-name: capstone-prasad-project
           requires:
             - docker-push
       - deploy-application:
-          cluster-name: capstone-Prasad-project
+          cluster-name: capstone-prasad-project
           requires:
             - aws-eks/create-cluster
       - test-cluster:
-          cluster-name: capstone-Prasad-project
+          cluster-name: capstone-prasad-project
           requires:
             - aws-eks/create-cluster
             - deploy-application
       - aws-eks/delete-cluster:
-          cluster-name: capstone-Prasad-project
+          cluster-name: capstone-prasad-project
           requires:
             - test-cluster
      
