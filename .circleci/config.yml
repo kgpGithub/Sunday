@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Run Lint
           command: |
-            cd /home/ec2-user/environment/Sunday
+            cd ~/environment/Sunday-1
             hadolint Dockerfile
 
   docker-build:
