@@ -16,7 +16,8 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, Prasad World!"
+          command: |
+                   "echo Hello, Prasad World!"
                    "echo Welcome Girija Prasad Korivi!"
 
 # Invoke jobs via workflows
